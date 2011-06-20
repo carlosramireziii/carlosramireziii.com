@@ -1,0 +1,11 @@
+- # libraries
+= javascript_include_tag "http://ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js"
+= javascript_include_tag "http://ajax.cdnjs.com/ajax/libs/underscore.js/1.1.6/underscore-min.js"
+= javascript_include_tag "http://ajax.cdnjs.com/ajax/libs/backbone.js/0.3.3/backbone-min.js"
+
+- # custom
+= javascript_include_tag "carlos.js"
+= javascript_include_tag "console.js"
+
+- # page-specific
+= yield_content :javascripts

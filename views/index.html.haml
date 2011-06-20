@@ -1,0 +1,10 @@
+- content_for :head do
+  %title The Middleman!
+  
+#console
+  #output
+    %p Welcome to CarlosRamirezIII.com
+    %p > carlos = Person.find_by_name("Carlos Ramirez")
+    %p => <#Person first_name: "Carlos", last_name: "Ramirez III", title: "Software Engineer">
+  %span.prompt >
+  = text_field_tag :input
