@@ -31,9 +31,9 @@ class Carlos
       :position => "Senior Software Engineer",
       :when => 2008..2011,
       :summary => "Architected and implemented an inter-agency data sharing system using Windows Communication 
-                Foundation with an emphasis on interoperability, distributability, and security. Designed and 
-                implemented a mapping system which integrates with ESRI ArcGIS web services to display maps, 
-                locate addresses, and retrieve geo-data."
+                  Foundation with an emphasis on interoperability, distributability, and security. Designed and 
+                  implemented a mapping system which integrates with ESRI ArcGIS web services to display maps, 
+                  locate addresses, and retrieve geo-data."
       }]
     '''
   @education: "<#School name: \"Williams College\", grad_year: 2008, degree: \"Bachelor of Arts in Computer Science\">"
@@ -41,7 +41,6 @@ class Carlos
     ==========
     = Person =
     ==========
-
     FIELDS:
       - first_name
       - last_name
@@ -53,17 +52,16 @@ class Carlos
       - work_experience
       - education
     METHODS:
-      + to_s
       + print
       + contact
       + follow
       + connect
       + meet
+      + to_s
+      + inspect
    '''
 
   # methods
-  @to_s: ->
-    return "#{@first_name} #{@last_name}"
   @print: ->
     window.open("carlos_ramirez_iii_resume.pdf")
   @contact: ->
@@ -74,6 +72,10 @@ class Carlos
     window.open("http://www.linkedin.com/pub/carlos-ramirez-iii/35/a/432")
   @meet: ->
     window.open("http://www.meetup.com/Long-Island-Rails-Road/")
+  @to_s: ->
+    return "#{@first_name} #{@last_name}"
+  @inspect: ->
+    return "<#Person first_name: \"#{@first_name}\", last_name: \"#{@last_name}\", title: \"#{@title}\">"
 
 # This adds this class definition to the global namespace  
 root = exports ? this

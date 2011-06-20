@@ -26,8 +26,6 @@ $ ->
         output = "\"Ellie Fichtelman\""
               
       # methods
-      when "carlos.to_s", "carlos.to_s()"
-        output = Carlos.to_s()
       when "carlos.print", "carlos.print()"
         Carlos.print()
         output = ""
@@ -43,6 +41,10 @@ $ ->
       when "carlos.meet", "carlos.meet()"
         Carlos.meet()
         output = ""
+      when "carlos.to_s", "carlos.to_s()"
+        output = "\"#{Carlos.to_s()}\""
+      when "carlos.inspect", "carlos.inspect()"
+        output = Carlos.inspect()
       
       # commands
       when "help"
@@ -58,11 +60,10 @@ $ ->
       else
         output = "error: unrecognized command. type 'help' for list of commands"
   
-  setOutput = ->
+  setOutput = (val) ->
     input = $('input')
-    output = parseInput input.val()
-    $('#output').append "<p>> " + input.val() + "<p>"
-    $('#output').append "<p>=> " + output + "<p>" if output.length > 0
+    $('#output').append "<p>> #{input.val()}</p>" if input.val().length > 0
+    $("<p>=> #{val}</p>").hide().appendTo(output).show('fast') if val.length > 0
     input.val("")
     return
     
@@ -70,10 +71,19 @@ $ ->
     $('#output').html("")
     return
   
+  # TODO Extract this into separate lib
   $('input').keyup (e) ->
     switch e.keyCode
       when 13
         event.preventDefault()
-        setOutput()
+        input = $('input')
+        setOutput parseInput input.val()
         
     false
+    
+  $('.typewrite').typewrite
+    typeSpeed: 60,
+    complete: ->
+      output = $('#output')
+      setOutput(Carlos.inspect())
+      $('#prompt').show()

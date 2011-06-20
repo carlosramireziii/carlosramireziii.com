@@ -4,7 +4,8 @@
 #console
   #output
     %p Welcome to CarlosRamirezIII.com
-    %p > carlos = Person.find_by_name("Carlos Ramirez")
-    %p => <#Person first_name: "Carlos", last_name: "Ramirez III", title: "Software Engineer">
-  %span.prompt >
+    %p 
+      %span > 
+      %span.typewrite carlos = Person.find_by_name("Carlos Ramirez III")
+  %span#prompt >
   = text_field_tag :input
