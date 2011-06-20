@@ -1,7 +1,19 @@
-$ ->
+class Console
   
-  parseInput = (input) ->
-    switch input
+  constructor: (@input, @output) ->
+    
+  setOutput: (val) ->
+    @output.append "<p>> #{@input.val()}</p>" if @input.val().length > 0
+    $("<p>=> #{val}</p>").hide().appendTo(@output).show('fast') if val.length > 0
+    @input.val("")
+    return
+    
+  clearOutput: ->
+    @ouput.html("")
+    return
+  
+  parseInput: ->
+    switch @input.val()
               
       # fields
       when "carlos.first_name"
@@ -59,31 +71,9 @@ $ ->
 
       else
         output = "error: unrecognized command. type 'help' for list of commands"
-  
-  setOutput = (val) ->
-    input = $('input')
-    $('#output').append "<p>> #{input.val()}</p>" if input.val().length > 0
-    $("<p>=> #{val}</p>").hide().appendTo(output).show('fast') if val.length > 0
-    input.val("")
-    return
-    
-  clearOutput = ->
-    $('#output').html("")
-    return
-  
-  # TODO Extract this into separate lib
-  $('input').keyup (e) ->
-    switch e.keyCode
-      when 13
-        event.preventDefault()
-        input = $('input')
-        setOutput parseInput input.val()
         
-    false
-    
-  $('.typewrite').typewrite
-    typeSpeed: 60,
-    complete: ->
-      output = $('#output')
-      setOutput(Carlos.inspect())
-      $('#prompt').show()
+    return output
+        
+# This adds this class definition to the global namespace  
+root = exports ? this
+root.Console = Console

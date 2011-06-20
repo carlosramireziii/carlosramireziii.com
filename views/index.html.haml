@@ -4,8 +4,10 @@
 #console
   #output
     %p Welcome to CarlosRamirezIII.com
+    %p For assistance, type 'help'
     %p 
       %span > 
       %span.typewrite carlos = Person.find_by_name("Carlos Ramirez III")
-  %span#prompt >
-  = text_field_tag :input
+  #prompt
+    %span >
+    = text_field_tag :input
