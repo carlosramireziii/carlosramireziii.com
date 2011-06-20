@@ -53,6 +53,18 @@ $ ->
     education: -> education
     
     # methods
+    to_s: ->
+      return "#{first_name} #{last_name}"
+    print: ->
+      window.open("carlos_ramirez_iii_resume.pdf")
+    contact: ->
+      window.open("mailto:#{email}", "_parent")
+    follow: ->
+      window.open("http://www.twitter.com/cramireziii")
+    connect: ->
+      window.open("http://www.linkedin.com/pub/carlos-ramirez-iii/35/a/432")
+    meet: ->
+      window.open("http://www.meetup.com/Long-Island-Rails-Road/")
     
     # helper
     full_name: -> first_name + ' ' + last_name
@@ -77,9 +89,9 @@ $ ->
           + to_s
           + print
           + contact
-          + tweet
-          + link_in
-          + meet_up
+          + follow
+          + connect
+          + meet
        '''
 
       
@@ -112,11 +124,31 @@ $ ->
       when "carlos.girlfriend"
         output = "\"Ellie Fichtelman\""
               
+      # methods
+      when "carlos.to_s", "carlos.to_s()"
+        output = carlos.to_s()
+      when "carlos.print", "carlos.print()"
+        carlos.print()
+        output = ""
+      when "carlos.contact", "carlos.contact()"
+        carlos.contact()
+        output = ""
+      when "carlos.follow", "carlos.follow()"
+        carlos.follow()
+        output = ""
+      when "carlos.connect", "carlos.connect()"
+        carlos.connect()
+        output = ""
+      when "carlos.meet", "carlos.meet()"
+        carlos.meet()
+        output = ""
+      
       # commands
       when "help"
         output = "<pre>#{carlos.help()}</pre>"
       when "clear"
         clearOutput()
+        output = ""
         
       # misc
       when "carlos"
@@ -135,7 +167,7 @@ $ ->
     
   clearOutput = ->
     $('#output').html("")
-    return ""
+    return
   
   $('input').keyup (e) ->
     switch e.keyCode
