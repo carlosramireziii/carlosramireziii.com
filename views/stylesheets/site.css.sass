@@ -21,6 +21,8 @@ $blueprint-grid-margin:  20px
 a
   +link-colors($link-color, $link-hover-color, $link-focus-color, $link-active-color, $link-visited-color)
 
+// TODO - put these in layout?
+
 #main
   padding: 50px
   +container
@@ -32,21 +34,42 @@ a
 // =========
 // = Style =
 // =========
+
+$dark_gray:   #A7A7A7
+$light_gray:  #CFCFCF
+$border_gray: #E2E2E2
+$border_dark: #515151
+
 #console
+  background-color: $dark_gray
+  +single-box-shadow(#999999, 0px, 15px, 40px, false, false)
+  
+#title_bar
+  height: 2em
+  background-color: $dark_gray
+  border-top: 1px solid $border_gray
+  border-bottom: 1px solid $border_dark
+  +border-top-radius(0.35em)
+  +background-image(linear-gradient($light_gray, $dark_gray))
+  
+#content
   height: 475px
-  background-color: black
-  color: #55d839 !important
-  font-family: Monaco, monospace
   padding: 1em
   overflow: auto
+  border:
+    left: 0.1em solid #999999
+    right: 0.1em solid #999999
+    bottom: 0.1em solid #999999
   
 #console input
   border: none
-  background: black
-  color: #55d839 !important
-  font-family: Monaco, monospace
   font-size: 100%
   outline: none
+  
+#console, #console input, pre
+  color: black !important
+  background-color: white
+  font-family: Monaco, monospace
   
 #console input:active
   border: none !important

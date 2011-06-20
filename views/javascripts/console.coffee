@@ -9,7 +9,7 @@ class Console
     return
     
   clearOutput: ->
-    @ouput.html("")
+    @output.html("")
     return
   
   parseInput: ->
@@ -62,7 +62,7 @@ class Console
       when "help"
         output = "<pre>#{Carlos.uml}</pre>"
       when "clear"
-        clearOutput()
+        @clearOutput()
         output = ""
         
       # misc

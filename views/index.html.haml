@@ -2,12 +2,14 @@
   %title The Middleman!
   
 #console
-  #output
-    %p Welcome to CarlosRamirezIII.com
-    %p For assistance, type 'help'
-    %p 
-      %span > 
-      %span.typewrite carlos = Person.find_by_name("Carlos Ramirez III")
-  #prompt
-    %span >
-    = text_field_tag :input
+  #title_bar
+  #content
+    #output
+      %p Welcome to CarlosRamirezIII.com
+      %p For assistance, type 'help'
+      %p 
+        %span >
+        %span.typewrite carlos = Person.find_by_name("Carlos Ramirez III")
+    #prompt
+      %span >
+      = text_field_tag :input
