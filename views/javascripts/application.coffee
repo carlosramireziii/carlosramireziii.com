@@ -9,7 +9,7 @@ $ ->
         event.preventDefault()
         output = console.parseInput()
         console.setOutput output
-        $('#console').animate
+        $('#content').animate
           scrollTop: 999999,
           'slow'
     false

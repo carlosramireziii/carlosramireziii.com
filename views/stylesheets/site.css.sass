@@ -21,8 +21,9 @@ $blueprint-grid-margin:  20px
 a
   +link-colors($link-color, $link-hover-color, $link-focus-color, $link-active-color, $link-visited-color)
 
-// TODO - put these in layout?
-
+// ==========
+// = Layout =
+// ==========
 #main
   padding: 50px
   +container
@@ -34,44 +35,57 @@ a
 // =========
 // = Style =
 // =========
-
 $dark_gray:   #A7A7A7
 $light_gray:  #CFCFCF
 $border_gray: #E2E2E2
 $border_dark: #515151
+$shadow_gray: #999999
+
+#wrap
+  position: absolute
+  top: 50%
+  height: 1px
+  overflow: visible
 
 #console
-  background-color: $dark_gray
-  +single-box-shadow(#999999, 0px, 15px, 40px, false, false)
+  +single-box-shadow($shadow_gray, 0px, 15px, 40px, false, false)
+  position: absolute
+  top: -261px
+  height: 523px
   
 #title_bar
-  height: 2em
-  background-color: $dark_gray
-  border-top: 1px solid $border_gray
-  border-bottom: 1px solid $border_dark
-  +border-top-radius(0.35em)
+  height: 25px
+  text-align: center
+  background-color: transparent
+  +border-top-radius(4px)
+  border: 
+    top: 1px solid $dark_gray
+    left: 1px solid $dark_gray
+    right: 1px solid $dark_gray
+    bottom: 1px solid $border_dark
   +background-image(linear-gradient($light_gray, $dark_gray))
+  span
+    vertical-align: middle
+    font-family: "Lucida Grande"
   
 #content
   height: 475px
-  padding: 1em
+  padding: 10px
   overflow: auto
   border:
-    left: 0.1em solid #999999
-    right: 0.1em solid #999999
-    bottom: 0.1em solid #999999
+    left: 1px solid $shadow_gray
+    right: 1px solid $shadow_gray
+    bottom: 1px solid $shadow_gray
   
-#console input
+#content input
   border: none
   font-size: 100%
   outline: none
   
-#console, #console input, pre
-  color: black !important
-  background-color: white
+#content, #content input, pre
   font-family: Monaco, monospace
   
-#console input:active
+#content input:active
   border: none !important
   
 .typewrite, #prompt
