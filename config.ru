@@ -6,7 +6,7 @@ run Middleman::Server
 =end
 
 use Rack::Static, 
-  :urls => ["/stylesheets", "/images"],
+  :urls => ["/stylesheets", "/images", "/javascripts"],
   :root => "build"
 
 run lambda { |env|
