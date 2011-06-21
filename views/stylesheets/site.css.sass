@@ -1,0 +1,92 @@
+@import "compass"
+@import "blueprint"
+
+$font-color:         #2a2a2a
+$link-color:         #0388a6
+$link-hover-color:   #009ce0
+$link-focus-color:   $link-color
+$link-active-color:  $link-color
+$link-visited-color: $link-color
+
+$blueprint-font-family:  'Century Gothic', 'Apple Gothic', 'Helvetica Neue', arial, sans-serif
+$blueprint-font-size:    13px
+$blueprint-grid-columns: 12
+$blueprint-grid-width:   60px
+$blueprint-grid-margin:  20px
+
++global-reset
+
++blueprint-typography
+
+a
+  +link-colors($link-color, $link-hover-color, $link-focus-color, $link-active-color, $link-visited-color)
+
+// ==========
+// = Layout =
+// ==========
+#main
+  padding: 50px
+  +container
+
+#console
+  +column(12)
+  +last
+  
+// =========
+// = Style =
+// =========
+$dark_gray:   #A7A7A7
+$light_gray:  #CFCFCF
+$border_gray: #E2E2E2
+$border_dark: #515151
+$shadow_gray: #999999
+
+#wrap
+  position: absolute
+  top: 50%
+  height: 1px
+  overflow: visible
+
+#console
+  +single-box-shadow($shadow_gray, 0px, 15px, 40px, false, false)
+  position: absolute
+  top: -261px
+  height: 523px
+  
+#title_bar
+  height: 25px
+  text-align: center
+  background-color: transparent
+  +border-top-radius(4px)
+  border: 
+    top: 1px solid $dark_gray
+    left: 1px solid $dark_gray
+    right: 1px solid $dark_gray
+    bottom: 1px solid $border_dark
+  +background-image(linear-gradient($light_gray, $dark_gray))
+  span
+    vertical-align: middle
+    font-family: "Lucida Grande"
+  
+#content
+  height: 475px
+  padding: 10px
+  overflow: auto
+  border:
+    left: 1px solid $shadow_gray
+    right: 1px solid $shadow_gray
+    bottom: 1px solid $shadow_gray
+  
+#content input
+  border: none
+  font-size: 100%
+  outline: none
+  
+#content, #content input, pre
+  font-family: Monaco, monospace
+  
+#content input:active
+  border: none !important
+  
+.typewrite, #prompt
+  display: none

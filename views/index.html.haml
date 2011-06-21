@@ -1,0 +1,18 @@
+- content_for :head do
+  %title Carlos Ramirez III
+  
+#wrap
+  #console
+    #title_bar
+      %span Terminal - bash
+    #content
+      #output
+        %p Welcome to CarlosRamirezIII.com
+        %p Type 'help' for a list of methods
+        %p ==================================
+        %p 
+          %span >
+          %span.typewrite carlos = Person.find_by_name("Carlos Ramirez III")
+      #prompt
+        %span >
+        = text_field_tag :input
