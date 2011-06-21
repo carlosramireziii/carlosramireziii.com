@@ -14,7 +14,7 @@ class Console
   
   parseInput: ->
     switch @input.val()
-              
+    
       # fields
       when "carlos.first_name"
         output = "\"#{Carlos.first_name}\""
@@ -70,7 +70,10 @@ class Console
         output = "<#Person first_name: \"#{Carlos.first_name}\", last_name: \"#{Carlos.last_name}\", title: \"#{Carlos.title}\">"
 
       else
-        output = "error: unrecognized command. type 'help' for list of commands"
+        if @input.val().match(/carlos./)
+          output = "error: unrecognized method. type 'help' for list of methods"
+        else
+          output = "error: methods are called on objects, e.g.: {object}.{method}"
         
     return output
         
