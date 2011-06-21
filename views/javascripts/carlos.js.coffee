@@ -63,7 +63,7 @@ class Carlos
 
   # methods
   @print: ->
-    window.open("carlos_ramirez_iii_resume.pdf")
+    window.open("../carlos_ramirez_iii_resume.pdf")
   @contact: ->
     window.open("mailto:#{@email}", "_parent")
   @follow: ->
