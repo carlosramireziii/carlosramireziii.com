@@ -35,12 +35,17 @@ a
 // =========
 // = Style =
 // =========
-$dark_gray:   #A7A7A7
-$light_gray:  #CFCFCF
-$border_gray: #E2E2E2
-$border_dark: #515151
-$shadow_gray: #999999
+$light_blue:  rgb(168,204,255)
+$shadow:      rgba(0,0,0,0.5)
+$brd_bottom:  rgb(119,119,119)
+$grad_max:    rgb(167,167,167)
+$grad_min:    rgb(203,203,203)
+$brd_top:     rgb(81,81,81)
+$brd_side:    rgb(155,155,155)
 
+html
+  background: $light_blue
+  
 #wrap
   position: absolute
   top: 50%
@@ -48,7 +53,6 @@ $shadow_gray: #999999
   overflow: visible
 
 #console
-  +single-box-shadow($shadow_gray, 0px, 15px, 40px, false, false)
   position: absolute
   top: -261px
   height: 523px
@@ -56,14 +60,13 @@ $shadow_gray: #999999
 #title_bar
   height: 25px
   text-align: center
-  background-color: transparent
   +border-top-radius(4px)
-  border: 
-    top: 1px solid $dark_gray
-    left: 1px solid $dark_gray
-    right: 1px solid $dark_gray
-    bottom: 1px solid $border_dark
-  +background-image(linear-gradient($light_gray, $dark_gray))
+  border:
+    left: 1px solid $brd_side
+    right: 1px solid $brd_side
+    bottom: 1px solid $brd_top
+  +background-image(linear-gradient($grad_min, $grad_max))
+  +background-clip(border-box)
   span
     vertical-align: middle
     font-family: "Lucida Grande"
@@ -72,10 +75,12 @@ $shadow_gray: #999999
   height: 475px
   padding: 10px
   overflow: auto
+  background: white
   border:
-    left: 1px solid $shadow_gray
-    right: 1px solid $shadow_gray
-    bottom: 1px solid $shadow_gray
+    left: 1px solid $brd_side
+    right: 1px solid $brd_side
+    bottom: 1px solid $brd_bottom
+  +single-box-shadow($shadow, 0px, 4px, 40px, 8px, false)
   
 #content input
   border: none
