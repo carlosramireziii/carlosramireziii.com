@@ -1,0 +1,12 @@
+- # libraries
+= javascript_include_tag "https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"
+= javascript_include_tag "head.min.js"
+= javascript_include_tag "jquery.typewrite.js"
+
+- # custom
+= javascript_include_tag "application.js"
+= javascript_include_tag "carlos.js"
+= javascript_include_tag "console.js"
+
+- # page-specific
+= yield_content :javascripts
