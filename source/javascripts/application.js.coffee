@@ -6,7 +6,7 @@ $ ->
   $('input').keyup (e) ->
     switch e.keyCode
       when 13
-        event.preventDefault()
+        e.preventDefault()
         output = console.parseInput()
         console.setOutput output
         $('#content').animate
