@@ -22,6 +22,16 @@ a
   +link-colors($link-color, $link-hover-color, $link-focus-color, $link-active-color, $link-visited-color)
 
 // ==========
+// = Mixins =
+// ==========
+=modern-linear-gradient($color-1, $color-2)
+  +background-image(linear-gradient($color-1, $color-2))
+  .lt-ie9 &
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#{$color-1}", endColorstr="#{$color-2}")
+  .no-gradient &
+    background: $color-2
+
+// ==========
 // = Layout =
 // ==========
 #main
@@ -65,7 +75,8 @@ html
     left: 1px solid $brd_side
     right: 1px solid $brd_side
     bottom: 1px solid $brd_top
-  +background-image(linear-gradient($grad_min, $grad_max))
+  +modern-linear-gradient($grad_min, $grad_max)
+  .no-gradient
   +background-clip(border-box)
   span
     vertical-align: middle
